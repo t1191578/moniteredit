@@ -34,7 +34,7 @@ class Onecluster(Resource):
         for i in range(len(val)):
             cluster = val[i]
             if cluster['metric']['__name__'] == 'slurm_'+metric:
-                return {'cluster name': cluster['metric']['job'], cluster['metric']['__name__'][6:]: cluster['value'][1]}
+                return {'cluster name': cluster['metric']['job'], cluster['metric']['__name__'][6:]: cluster['value'][1]}, 200
         #if result: return result ,  200
             else: return None, 404
 
