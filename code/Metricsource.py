@@ -3,7 +3,7 @@ from multipledispatch import dispatch
 
 
 class Source:
-    def __init__(self,url,query):
+    def __init__(self,url,query="query?query="):
         self.url = url
         self.query= query
     def url(self):
@@ -20,6 +20,7 @@ class Source:
             raise ApiError('GET /tasks/ {}'.format(resp.status_code))
         val= resp.json()
         cluster = val['data']['result']
+        print (cluster)
         return cluster
     @dispatch(str,str)
     def inputoutput(self, name, metricreq):
@@ -34,5 +35,5 @@ class Source:
 
 uri="http://35.154.106.147:9090/api/v1/"
 query= "query?query="
-val=Source(uri,query)
+val=Source(uri)
 val.inputoutput( "go_info")

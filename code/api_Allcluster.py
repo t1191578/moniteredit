@@ -8,8 +8,8 @@ app =Flask(__name__)
 api = Api(app)
 
 uri = "http://35.154.106.147:9090/api/v1/"
-query = "query?query="
-clsval = Source(uri, query)
+#query = "query?query="
+clsval = Source(uri)
 
 
 class Allcluster(Resource):
