@@ -37,7 +37,7 @@ class Onecluster(Resource):
                 return {'cluster name': cluster['metric']['job'], cluster['metric']['__name__'][6:]: cluster['value'][1]}, 200
         #if result: return result ,  200
             else: return None, 404
-
+            
 class Clusterlist(Resource):
 
     def get(self, clustercmd):
